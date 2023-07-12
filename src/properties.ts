@@ -1,5 +1,5 @@
-export const grid_size_x: number = 21;
-export const grid_size_y: number = 21;
+export const gridSizeX: number = 21;
+export const gridSizeY: number = 21;
 
 /*  Generator algorithms
 *
@@ -25,10 +25,10 @@ export const selectedSolveAlgorithm: number = 1;
 
 export const mazeProperties = {
     grid: undefined,
-    start_pos: undefined,
-    target_pos: undefined,
-    grid_clean: true,
-    my_interval: undefined,
+    startPos: undefined,
+    targetPos: undefined,
+    isGridClean: true,
+    myInterval: undefined,
     generating: false,
     timeouts: []
 }
