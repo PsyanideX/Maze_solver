@@ -1,8 +1,14 @@
-import { Observable, Subject } from "rxjs";
+import { Subject } from "rxjs";
 
 export const gridSizeX: number = 21;
 export const gridSizeY: number = 21;
 export const pathWidth: number = 3;
+
+export const initialConfig = {
+    gridSizeX: 21,
+    gridSizeY: 21,
+    pathWidth: 3
+}
 
 /*  Generator algorithms
 *
@@ -37,5 +43,6 @@ export const mazeProperties = {
     generating: false,
     timeouts: [],
     finishedGrid: undefined,
-    finishedPath: undefined
+    finishedPath: undefined,
+    renderGrid: undefined
 }
