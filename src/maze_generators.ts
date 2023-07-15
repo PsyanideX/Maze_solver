@@ -33,13 +33,9 @@ export function maze_generators(): void {
 }
 
 function finishGenerate(): void {
-	mazeProperties.grid[mazeProperties.startPos[1]][mazeProperties.startPos[0]] = 2;
-	console.log(mazeProperties.grid);
-	console.log(mazeProperties.startPos);
-	console.log(mazeProperties.targetPos);
-	setTimeout(() => {
-		maze_solvers();
-	}, 1000)
+	mazeProperties.finishedGrid = JSON.parse(JSON.stringify(mazeProperties.grid));
+	mazeProperties.finishedGrid[mazeProperties.startPos[1]][mazeProperties.startPos[0]] = 99;
+	maze_solvers();
 }
 
 function enclose(): void {
@@ -66,6 +62,7 @@ function randomized_depth_first(): void {
 			clearInterval(mazeProperties.myInterval);
 			clearGrid();
 			mazeProperties.generating = false;
+			finishGenerate();
 			return;
 		}
 

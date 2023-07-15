@@ -1,5 +1,5 @@
 import { clearGrid, getNeighbours, getNode } from "./common";
-import { mazeProperties, selectedSolveAlgorithm } from './properties';
+import { finishedGeneration, mazeProperties, selectedSolveAlgorithm } from './properties';
 
 let nodeList;
 let nodeListIndex;
@@ -9,7 +9,6 @@ let found = false;
 let path = false;
 
 export function maze_solvers(): void {
-	console.log("Starting maze solving");
 	clearGrid();
 	mazeProperties.isGridClean = false;
 	clearGrid();
@@ -59,7 +58,8 @@ function mazeSolversInterval(): void {
 		else {
 			if (pathListIndex == pathList.length) {
 				clearInterval(mazeProperties.myInterval);
-				console.log(pathList);
+				mazeProperties.finishedPath=JSON.parse(JSON.stringify(pathList));
+				finishedGeneration.next(mazeProperties);
 				return;
 			}
 
