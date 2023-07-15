@@ -1,9 +1,9 @@
 import { addWall, clearGrid, getNeighbours, getNode, removeWall } from "./common";
+import { convertirLaberinto } from "./conversor";
 import { maze_solvers } from "./maze_solvers";
-import { mazeProperties, selectedGenAlgorithm } from './properties';
+import { initialConfig, mazeProperties, selectedGenAlgorithm } from './properties';
 
 export function maze_generators(): void {
-	console.info("Starting maze generation")
 	mazeProperties.generating = true;
 	mazeProperties.isGridClean = false;
 
@@ -35,6 +35,8 @@ export function maze_generators(): void {
 function finishGenerate(): void {
 	mazeProperties.finishedGrid = JSON.parse(JSON.stringify(mazeProperties.grid));
 	mazeProperties.finishedGrid[mazeProperties.startPos[1]][mazeProperties.startPos[0]] = 99;
+	const newMaze = convertirLaberinto(mazeProperties.finishedGrid, initialConfig.pathWidth);
+	mazeProperties.renderGrid = newMaze;
 	maze_solvers();
 }
 
