@@ -2,6 +2,7 @@ import { Observable, Subject } from "rxjs";
 
 export const gridSizeX: number = 21;
 export const gridSizeY: number = 21;
+export const pathWidth: number = 3;
 
 /*  Generator algorithms
 *
