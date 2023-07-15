@@ -1,3 +1,5 @@
+import { Observable, Subject } from "rxjs";
+
 export const gridSizeX: number = 21;
 export const gridSizeY: number = 21;
 
@@ -23,6 +25,8 @@ export const selectedGenAlgorithm: number = 2;
 
 export const selectedSolveAlgorithm: number = 1;
 
+export let finishedGeneration = new Subject();
+
 export const mazeProperties = {
     grid: undefined,
     startPos: undefined,
@@ -30,5 +34,7 @@ export const mazeProperties = {
     isGridClean: true,
     myInterval: undefined,
     generating: false,
-    timeouts: []
+    timeouts: [],
+    finishedGrid: undefined,
+    finishedPath: undefined
 }

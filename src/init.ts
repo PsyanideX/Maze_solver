@@ -1,12 +1,19 @@
+import { firstValueFrom } from "rxjs";
 import { maze_generators } from "./maze_generators";
-import { gridSizeX, gridSizeY, mazeProperties } from "./properties";
+import { finishedGeneration, gridSizeX, gridSizeY, mazeProperties } from "./properties";
 
 window.onload = function() {
-	generate_grid();
-	maze_generators();
+	generateMazeAndSolution();
 }
 
-function generate_grid(): void {
+async function generateMazeAndSolution() {
+	generateGrid();
+	maze_generators();
+	await firstValueFrom(finishedGeneration);
+	console.log(JSON.parse(JSON.stringify(mazeProperties)));
+}
+
+function generateGrid(): void {
 	mazeProperties.grid = new Array(gridSizeX).fill(0).map(() => new Array(gridSizeY).fill(0));
 
 	mazeProperties.startPos = [1, gridSizeY - 2];
