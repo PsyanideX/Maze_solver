@@ -15,7 +15,6 @@ export function clearGrid(): void {
         }
 
         mazeProperties.timeouts = [];
-		clearInterval(mazeProperties.myInterval);
 
 		for (let i = 0; i < mazeProperties.grid.length; i++) {
             for (let j = 0; j < mazeProperties.grid[0].length; j++) {

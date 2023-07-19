@@ -1,8 +1,8 @@
-import { firstValueFrom } from "rxjs";
 import { maze_generators } from "./maze_generators";
-import { finishedGeneration, initialConfig, mazeProperties } from "./properties";
+import { maze_solvers } from "./maze_solvers";
+import { initialConfig, mazeProperties } from "./properties";
 
-export default async function generateMazeAndSolution(gridSizeX: number, gridSizeY: number, pathWidth: number) {
+export default function generateMazeAndSolution(gridSizeX: number, gridSizeY: number, pathWidth: number): any {
 
 	initialConfig.gridSizeX = gridSizeX;
 	initialConfig.gridSizeY = gridSizeY;
@@ -10,7 +10,7 @@ export default async function generateMazeAndSolution(gridSizeX: number, gridSiz
 
 	generateGrid();
 	maze_generators();
-	await firstValueFrom(finishedGeneration);
+	maze_solvers();
 	return mazeProperties;
 }
 
