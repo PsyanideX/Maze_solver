@@ -1,163 +1,19 @@
-# Maze solver
+# Maze generator and solver
 
-![Release](https://img.shields.io/badge/Release-v4.0-blueviolet)
-![Language](https://img.shields.io/badge/Language-JavaScript-ffcc14)
-![Size](https://img.shields.io/badge/Size-346Ko-f12222)
-![Open Source](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)
+This package is a fork of Angel Uriot project (https://angeluriot.com/maze_solver/).
 
-<br/>
+It's a simplified version which generates a maze as a bidimensional array of numbers where 0 represents a path, -1 a wall and 99 is the target point.
 
-This repository contains the source code of a web page that can generate and solve mazes using several algorithms. You can also move the start and the finish or draw your own walls.
+It exports the function "generateMazeAndSolution(gridSizeX: number, gridSizeY: number, pathWidth: number): any". It takes 3 parameters as input. The width and the height of the maze, and its path with.
 
-The web page is online at the address : **[angeluriot.com/maze_solver](https://angeluriot.com/maze_solver/)**.
+This function returns 3 main things (Im planning to return only the 3 relevant things and remove that ugly any as the return type of the function):
+    
+    - The maze as a bidimensional array with the size we passed as parameter.
+    - The path from the starting point to the ending point.
+        + This comes also as a bidimensional array, where the inner arrays have 2 positions and represent the coordinates.
+    - The maze same maze as before but with the specified path width
 
-<br/>
 
-<p align="center">
-	<img src="https://i.imgur.com/iSW6t5e.png" width="700">
-</p>
+NPM:    https://www.npmjs.com/package/maze-generator-and-solver
 
-<br/>
-
-# Summary
-
-* **[Summary](#summary)**
-* **[Features](#features)**
-* **[Tests](#tests)**
-	* [Maze generation algorithms](#maze-generation-algorithms)
-	* [Pathfinding algorithms](#pathfinding-algorithms)
-* **[Credits](#credits)**
-
-<br/>
-
-# Features
-
-* You can choose the pathfinding algorithm of the maze solver :
-
-<p align="center">
-	<img src="https://i.imgur.com/D09nORf.png" width="250">
-</p>
-
-* You can move the start and the finish :
-
-<p align="center">
-	<img src="https://i.imgur.com/g40S4LH.png" width="500">
-</p>
-
-* You can also add and remove walls on the grid :
-
-<p align="center">
-	<img src="https://i.imgur.com/q7ZHJY5.png" width="500">
-</p>
-
-* But the program is also able to generate a maze and you can choose the algorithm :
-
-<p align="center">
-	<img src="https://i.imgur.com/GPM7rNP.png" width="250">
-</p>
-
-* The `Clear` button allows you to clear the grid and the `Start` button runs the pathfinding algorithm
-
-<br/>
-
-# Tests
-
-### Maze generation algorithms
-
-* **Randomized Depth-First :**
-
-<p align="center">
-	<img src="https://i.imgur.com/QOOM5Fc.png" width="45%">
-	<span>&nbsp;&nbsp;&nbsp;</span>
-	<img src="https://i.imgur.com/bprV2tG.png" width="45%">
-</p>
-
-* **Kruskal's Algorithm :**
-
-<p align="center">
-	<img src="https://i.imgur.com/c3n5hgD.png" width="45%">
-	<span>&nbsp;&nbsp;&nbsp;</span>
-	<img src="https://i.imgur.com/56vkvMf.png" width="45%">
-</p>
-
-* **Prim's Algorithm :**
-
-<p align="center">
-	<img src="https://i.imgur.com/zSNwWtw.png" width="45%">
-	<span>&nbsp;&nbsp;&nbsp;</span>
-	<img src="https://i.imgur.com/JhGrzpK.png" width="45%">
-</p>
-
-* **Wilson's Algorithm** *(unbiased)* **:**
-
-<p align="center">
-	<img src="https://i.imgur.com/WofYqen.png" width="45%">
-	<span>&nbsp;&nbsp;&nbsp;</span>
-	<img src="https://i.imgur.com/Wz3ovhz.png" width="45%">
-</p>
-
-* **Aldous-Broder Algorithm** *(unbiased)* **:**
-
-<p align="center">
-	<img src="https://i.imgur.com/Haur1ls.png" width="45%">
-	<span>&nbsp;&nbsp;&nbsp;</span>
-	<img src="https://i.imgur.com/GPJqEE5.png" width="45%">
-</p>
-
-* **Recursive Division :**
-
-<p align="center">
-	<img src="https://i.imgur.com/mUXuKQ7.png" width="45%">
-	<span>&nbsp;&nbsp;&nbsp;</span>
-	<img src="https://i.imgur.com/cc08aQT.png" width="45%">
-</p>
-
-<br/>
-
-### Pathfinding algorithms
-
-* **Breadth-First** *(Slow but gives the shortest path)* **:**
-
-<p align="center">
-	<img src="https://i.imgur.com/Sb6UDvx.png" width="45%">
-	<span>&nbsp;&nbsp;&nbsp;</span>
-	<img src="https://i.imgur.com/V0aXTsQ.png" width="45%">
-</p>
-
-* **Bidirectional Breadth-First** *(A little less slow and gives the shortest path)* **:**
-
-<p align="center">
-	<img src="https://i.imgur.com/gSX6FH7.png" width="45%">
-	<span>&nbsp;&nbsp;&nbsp;</span>
-	<img src="https://i.imgur.com/eK4Ddj9.png" width="45%">
-</p>
-
-* **Greedy Best-First** *(Very fast but does not always give the shortest path)* **:**
-
-<p align="center">
-	<img src="https://i.imgur.com/nXbSHOQ.png" width="45%">
-	<span>&nbsp;&nbsp;&nbsp;</span>
-	<img src="https://i.imgur.com/yv3DlFy.png" width="45%">
-</p>
-
-* **Dijkstra** *(Slow but gives the shortest path)* **:**
-
-<p align="center">
-	<img src="https://i.imgur.com/Sb6UDvx.png" width="45%">
-	<span>&nbsp;&nbsp;&nbsp;</span>
-	<img src="https://i.imgur.com/V0aXTsQ.png" width="45%">
-</p>
-
-* **A\*** *(Fast and gives the shortest path)* **:**
-
-<p align="center">
-	<img src="https://i.imgur.com/7sII5LX.png" width="45%">
-	<span>&nbsp;&nbsp;&nbsp;</span>
-	<img src="https://i.imgur.com/IChJALl.png" width="45%">
-</p>
-
-<br/>
-
-# Credits
-
-* [**Angel Uriot**](https://github.com/angeluriot) : Creator of the project.
+GitHub: https://github.com/PsyanideX/Maze_solver
