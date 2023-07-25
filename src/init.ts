@@ -1,8 +1,9 @@
+import { MazeProperties, MazeResult } from "./interfaces";
 import { maze_generators } from "./maze_generators";
 import { maze_solvers } from "./maze_solvers";
 import { initialConfig, mazeProperties } from "./properties";
 
-export default function generateMazeAndSolution(gridSizeX: number, gridSizeY: number, pathWidth: number): any {
+export default function generateMazeAndSolution(gridSizeX: number, gridSizeY: number, pathWidth: number): MazeResult {
 
 	initialConfig.gridSizeX = gridSizeX;
 	initialConfig.gridSizeY = gridSizeY;
@@ -11,7 +12,8 @@ export default function generateMazeAndSolution(gridSizeX: number, gridSizeY: nu
 	generateGrid();
 	maze_generators();
 	maze_solvers();
-	return mazeProperties;
+
+	return buildReturnValue(mazeProperties);
 }
 
 function generateGrid(): void {
@@ -19,4 +21,12 @@ function generateGrid(): void {
 
 	mazeProperties.startPos = [1, initialConfig.gridSizeY - 2];
 	mazeProperties.targetPos = [initialConfig.gridSizeX - 2, 1];
+}
+
+function buildReturnValue(mazeProperties: MazeProperties): MazeResult {
+	return {
+		maze: mazeProperties.finishedGrid,
+		mazeRender: mazeProperties.renderGrid,
+		path: mazeProperties.finishedPath
+	}
 }

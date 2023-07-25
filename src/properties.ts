@@ -1,3 +1,5 @@
+import { MazeProperties } from "./interfaces";
+
 export const gridSizeX: number = 21;
 export const gridSizeY: number = 21;
 export const pathWidth: number = 3;
@@ -8,7 +10,7 @@ export const initialConfig = {
     pathWidth: 3
 }
 
-export const mazeProperties = {
+export const mazeProperties: MazeProperties = {
     grid: undefined,
     startPos: undefined,
     targetPos: undefined,

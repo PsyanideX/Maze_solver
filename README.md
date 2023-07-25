@@ -6,7 +6,7 @@ It's a simplified version which generates a maze as a bidimensional array of num
 
 It exports the function "generateMazeAndSolution(gridSizeX: number, gridSizeY: number, pathWidth: number): any". It takes 3 parameters as input. The width and the height of the maze, and its path with.
 
-This function returns 3 main things (Im planning to return only the 3 relevant things and remove that ugly any as the return type of the function):
+This function returns 3 main things:
     
     - The maze as a bidimensional array with the size we passed as parameter.
     - The path from the starting point to the ending point.
