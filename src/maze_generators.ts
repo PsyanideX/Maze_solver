@@ -1,6 +1,5 @@
 import { addWall, clearGrid, removeWall } from "./common";
-import { convertirLaberinto } from "./conversor";
-import { initialConfig, mazeProperties } from './properties';
+import { mazeProperties } from './properties';
 
 export function maze_generators(): void {
 	mazeProperties.generating = true;
@@ -12,8 +11,7 @@ export function maze_generators(): void {
 function finishGenerate(): void {
 	mazeProperties.finishedGrid = JSON.parse(JSON.stringify(mazeProperties.grid));
 	mazeProperties.finishedGrid[mazeProperties.startPos[1]][mazeProperties.startPos[0]] = 99;
-	const newMaze = convertirLaberinto(mazeProperties.finishedGrid, initialConfig.pathWidth);
-	mazeProperties.renderGrid = newMaze;
+	mazeProperties.finishedGrid[mazeProperties.targetPos[1]][mazeProperties.targetPos[0]] = 100;
 }
 
 function kruskal_algorithm(): void {

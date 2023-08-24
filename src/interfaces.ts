@@ -1,7 +1,6 @@
 export interface MazeResult {
     maze: number[][];
     path: number[][];
-    mazeRender: number[][];
 }
 
 export interface MazeProperties {

@@ -3,6 +3,10 @@ import { maze_generators } from "./maze_generators";
 import { maze_solvers } from "./maze_solvers";
 import { initialConfig, mazeProperties } from "./properties";
 
+window.onload = () => {
+	
+}
+
 export default function generateMazeAndSolution(gridSizeX: number, gridSizeY: number, pathWidth: number): MazeResult {
 
 	initialConfig.gridSizeX = gridSizeX;
@@ -26,7 +30,6 @@ function generateGrid(): void {
 function buildReturnValue(mazeProperties: MazeProperties): MazeResult {
 	return {
 		maze: mazeProperties.finishedGrid,
-		mazeRender: mazeProperties.renderGrid,
 		path: mazeProperties.finishedPath
 	}
 }
