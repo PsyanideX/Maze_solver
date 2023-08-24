@@ -3,15 +3,11 @@ import { maze_generators } from "./maze_generators";
 import { maze_solvers } from "./maze_solvers";
 import { initialConfig, mazeProperties } from "./properties";
 
-window.onload = () => {
-	
-}
 
-export default function generateMazeAndSolution(gridSizeX: number, gridSizeY: number, pathWidth: number): MazeResult {
+export default function generateMazeAndSolution(gridSizeX: number, gridSizeY: number): MazeResult {
 
 	initialConfig.gridSizeX = gridSizeX;
 	initialConfig.gridSizeY = gridSizeY;
-	initialConfig.pathWidth = pathWidth;
 
 	generateGrid();
 	maze_generators();

@@ -2,12 +2,10 @@ import { MazeProperties } from "./interfaces";
 
 export const gridSizeX: number = 21;
 export const gridSizeY: number = 21;
-export const pathWidth: number = 3;
 
 export const initialConfig = {
     gridSizeX: 21,
-    gridSizeY: 21,
-    pathWidth: 3
+    gridSizeY: 21
 }
 
 export const mazeProperties: MazeProperties = {
